@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #d{
+            width: 100px;
+            height:200px;
+            border: 1px solid red;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- for in 语句
+        
+    
+    -->
+    <div id="d"></div>
+</body>
+<script>
+    // 这种方法是通过整除10来确定整除了几次代表几位数
+    /*var num=prompt("请输入一个整数：","");
+    var count=1;
+    while(num>10){
+        num=num/10;
+        count++;
+    }
+    document.write("它的位数是："+count);*/
+    //找规律：找到1 1 3 5 8 13...的第20项
+    // var list = [1, 1];
+    // function listAdd(arr, j) {
+    //     var i = arr.length;
+    //    while (arr.length >= 2 && arr.length <= 20) {
+
+    //         arr[i] = arr[i - 1] + arr[i - 2];
+    //         // arr.push(arr[i]);
+    //         i++;
+    //     }
+    //     // return arr;
+    //     console.log(arr + "------" + arr[j]);
+    // }
+    // listAdd(list, 20);
+
+    // var i=0;
+    // nums=[1,2,3,6,2,5,10];
+    // while(i<nums.length-1){
+    //     var min=nums[i];
+    //     for(var j=i+1;j<nums.length-1,j>=i+1;j++){
+    //         if(nums[j]%min==0){
+    //             nums.splice(j,1);
+    //             //删除要从前往后删
+    //         }
+    //     }
+    // }
+    
+
+    //一种简单的方法,形参的数据类型不用写，因为JS只有一种数据类型
+    // function add(a,b){
+    //     document.write("before:"+a);
+    //     a++;
+    //     document.write("after:"+a);
+    //     return a+b;
+    // }
+    // var x=20,y=20;
+    // document.write("sum="+add(x,y));
+    // function add(obj){
+    //     document.write("before:"+obj.age);
+    //     ++obj.age;
+    //     document.write("after:"+obj.age);
+    // }
+    // var ob={age:20};//存在堆中，ob存了堆的首地址
+    // add(ob);//将ob的首地址作为实参传给形参obj
+    // document.write("添加后:"+ob.age);
+
+    /* function add(obj){
+        document.write("before:"+obj.age);
+        obj.age=30;
+        document.write("after:"+obj.age);
+    }
+    var obj={age:70};
+    add(obj);
+    document.write("添加后:"+obj.age);*/
+    //递归调用
+   /* function jc(n){
+        if(n==0){
+            return n;
+        }else{
+            return n*jc(n-1);
+        }
+    }
+    jc(5);
+    console.log(jc(5));
+    function test(a,b,c){
+        document.write(test.length);
+        document.write("<br/>");
+        document.write(arguments.length+"<br/>");
+        for(var i=0;i<arguments.length;i++){
+            document.write(arguments[i]+"<br/>");
+        }
+    }
+    test("shenzhen",109);
+    function sum(a,b){
+        var s=0;
+        for(var i=0;i<arguments.length;i++){
+            document.write(arguments[i]+"<br/>");
+        }
+    }
+   console.log(sum(1,2,5,3,4,5));*/
+   //1.编写方法实现判断一个整数是否是质数的判断
+   //2、编写方法实现统计数组中有几个偶数
+   //3. 一个球从高处落下，触地后会反弹，且反弹
+   /*   高度是落下高度的一半。编写方法计算小球
+        需要经过几次才会静止(反弹高度<0.00001m
+        认为静止)。
+     4、编写方法实现：输入2个正整数，输出他们的
+        最小公倍数。
+
+   
+    
+        var count=1;
+       
+        function ft(x){
+            // if(x<0.00001){
+            //     return 1;
+            // }else{
+            //     return 1+ft(x/2);
+            // }
+                
+             while(x/2>0.00001){
+                count++;
+                x=x/2;
+            }
+        return count;
+        }
+           
+    
+ document.write(ft(10)+"次弹跳");*/
+
+   //1.
+   /*var numb=prompt("请输入一个数：","");
+   panduan(numb);
+   function panduan(num){      
+			//创建一个布尔值用来保存结果，默认i为质数
+			var flag=true;
+			for(var j=2;j<=100;j++){
+				if(num%j==0){
+					//如果进入判断则证明i不是质数,修改flag值为false
+                      flag = false;
+                      document.write("不是哟");
+                      break;
+				}
+			}
+			//如果是质数，则打印i的值
+              if(j>=num){
+              	//打印时有限制条件
+              		document.write("是质数："+num+"<br/>");
+            //  console.log(i);
+                }
+   }
+
+   var num=[1,2,4,5,3,8,9,10];
+         function text(num){
+             var flag=true;
+             var count=0;
+             for(var i=0;i<num.length;i++){
+                 if(num[i]%2==0){
+                        flag = true;
+                        ++count;
+                        document.write("是偶数哟:"+num[i]+"<br/>");
+                      
+                      
+                    }else{
+                        flag=false;                  
+                        document.write("不是偶数哟:"+num[i]+"<br/>");
+                       
+                    } 
+                    
+             }
+             document.write("偶数的个数为："+count);
+             
+         }
+         text(num);*/
+         //从数组中获取最大值
+        /* var getMax=function(arr){
+            // 线性查找，假设数组中第一个是最大的
+           
+            //从数组中的第一个找到最后一个
+            for(var i=0;i<arr.length;i++){
+                
+                if(arr[i]>max){
+                    //记录新的最大数 
+                    var max=arr[0];
+                //    arr[i]=max;
+                   return max=arr[i];
+            //    document.write(max);
+               break;
+                }
+                 
+                // return max;
+            }
+         };
+        
+        document.write( getMax([10,1,2,8,19,89]));*/
+		/*function text(fn){
+            fn();
+        }
+        function showInfo(){
+            console.log("nihao");
+        }
+        text(showInfo);
+       
+       function find(arr,fn){
+           var target=null;
+           for(var i=0;i<arr.length;i++){
+               if(fn(arr[i])){
+                   target=arr[i];
+                   break;
+               }
+           }
+       }
+       find([2,1,5,8],f1=function(){
+           
+       })
+      if(window.confirm("您真的要删除吗？")){
+          alert("您单击了确定按钮");
+      }else{
+          alert("您单击了取消按钮");
+      }
+      var count=0;
+      var dsq;
+      function show(){
+          //date是内置的类 
+          var d1=new Date();
+          //创建了一个时间对象
+          //获取id=d1的这个层
+          var d=document.getElementById("d");
+          d.innerHTML=d1.toLocaleTimeString();
+         count++;
+          if(count>4){
+              //停止定时器
+              window.clearInterval(dsq);
+          }
+           
+      }
+      dsq=setInterval(show,1000);*/
+      
+      var nu1=prompt("第一个数：","");
+      var nu2=prompt("第二个数：","");
+    //   var num2=prompt("第二个数：","");
+    function text(num1,num2){
+        var s;
+        for(var i=2;i<100;i++){             
+          while(num1%i==0 && num2%i==0){
+              num1=num1/i;
+              num2=num2/i;       
+          }
+     
+      } 
+      s=num1*num2*i;
+            
+            return s;
+    }
+     document.write(text(nu1,nu2)); 
+      
+</script>
+</html>

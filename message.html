@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #message{
+            width: 300px;
+            height: 500px;
+            background: gainsboro;
+            margin: 20px auto;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+        input{
+            height: 20px;
+            padding: 0 3px;
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            font-size: 16px;
+            text-indent: 10px;
+            height: 20px;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">
+        <input type="text">
+        <input type="button" value="留言">
+        <input type="button" value="批量删除">
+        <ul id="list"></ul>
+    </div>
+</body>
+<script>
+// 留言框的基本操作如下，要求实现功能：
+/*
+    1.点击回车时发送留言信息
+    2.点击留言时发送留言信息
+    3.留言信息在框中显示
+    4.点击批量删除时将选择好的信息删除掉
+    5.留言后的信息不在留言栏中出现
+    --留言功能与删除功能分别实现
+*/
+    var oul=document.getElementById("list");
+    var oli=document.getElementsByTagName("li");
+    var oinp=document.getElementsByTagName("input");
+ 
+    //回车时按下
+    oinp[0].onkeyup=function(ev){
+        var ev=ev||event;
+        //判断框中是否有值
+        if(this.value!=""){
+            //判断是否按下了回车键，回车键的键码值为13
+            if(ev.keyCode==13){
+                addInfo();
+            }
+        }
+    }
+
+    //点击留言时按下
+    oinp[1].onclick=addInfo;
+
+    //点击批量删除时
+    oinp[2].onclick=function(){
+        for(var i=0;i<oli.length;i++){
+            if(!oli[i].onOff){
+                oul.removeChild(oli[i]);
+                i--;//动态的改变留言的条数
+            }
+        }
+    }
+    //留言功能并且实现隔行变色
+    function addInfo(){
+        //动态创建留言条数
+        var li=document.createElement("li");
+        //判断输入框是否有内容
+        if(oinp[0].value){
+            //将文本框的内容添加到新创建的li中去
+           li.innerHTML=oinp[0].value;
+           li.onOff=true;
+           if(oul.children[0]){
+               //如果显示框中有子元素了
+               oul.insertBefore(li,oul.children[0]);
+               //将新添加的li子元素添加到显示框中去也就是oul的子元素中去
+
+           }else{
+               //如果显示框没有子元素，则直接添加，使用appendshild()
+               oul.appendChild(li);
+           }
+        }else{
+            alert("请输入内容！")
+        }
+        //点击隔行变色功能
+        //for语句中的自执行函数的作用：（要引入闭包来保存变量i不被销毁），防止到最后的i为最后已经执行玩了的，初学者的坑
+        for(var i=0;i<oli.length;i++){
+            (function(j){
+                //鼠标移入时，改变颜色
+                oli[j].onmouseenter=function(){
+                    this.style.color="#fff";
+                    this.style.background="#999";
+                }
+                //鼠标移除出去时
+                oli[j].onmouseleave=function(){
+                    this.style.color="";
+                    this.style.background="";
+                }
+                //当点击时实现隔行变色
+                oli[j].onclick=function(){
+                    if(j%2==0){
+                        this.style.background="pink";
+                        oli[j].onmouseout=function(){
+                            this.style.background="pink";
+                        }
+                    }else{
+                        this.style.background="#3c9";
+                        oli[j].onmouseout=function(){
+                            this.style.background="#3c9";
+                        }
+                    }
+                    this.onOff=!this.onOff;
+                }
+            })(i);//自调用构造函数的方式,分号一定要加上
+        }
+        //清空文本信息
+        oinp[0].value="";
+    }
+    //
+</script>
+</html>

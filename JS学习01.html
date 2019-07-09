@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 计算数列1 1 2 3 5 8 13的第20项
+    // 输入一个整数，计算它的位数
+    // 使用“筛选法”打印100以内的所有质数
+    /*var arr=new Array();
+     arr[0]=1;
+     arr[1]=1;
+    var sum=0;
+    var num=prompt("请输入项数：","");
+    for(var i=0;i<num;i++){
+       sum=arr[i]+arr[i+1];
+       //2:0+1 1+1
+       //3:1+2 1+2
+       arr.push(sum);
+    }
+    console.log(arr[20]);//10946*/
+    
+    /*function text(){
+      var num=prompt();
+      
+       console.log( num.toString().length);
+    }
+    text();//第一种方法，将它转换成字符串*/
+
+   var i,j,num;
+   for(i=2;i<101;i++){
+       var a=true;
+       for(j=2;j<i;j++){
+           if(i%j==0){
+               a=false;
+           }
+
+       }
+       if(a){
+           document.write(j+"<br/>");
+       }
+   }
+
+
+</script>
+</html>
+
